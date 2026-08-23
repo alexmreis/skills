@@ -1,0 +1,5 @@
+interface:
+  display_name: "Wayfinder Tracer"
+  short_description: "Map a large effort as one tracer slice at a time"
+policy:
+  allow_implicit_invocation: false

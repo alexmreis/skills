@@ -29,6 +29,7 @@
     "./skills/engineering/to-spec",
     "./skills/engineering/to-tickets",
     "./skills/engineering/wayfinder",
+    "./skills/engineering/wayfinder-tracer",
     "./skills/engineering/implement",
     "./skills/engineering/prototype",
     "./skills/engineering/research",
