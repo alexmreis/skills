@@ -23,6 +23,8 @@ The route most work travels. You have an idea and want it built.
    - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`, worked blockers-first by hand; on a real tracker the edges become native blocking links, so any ticket whose blockers are done can be grabbed: kick off **`/implement`** per ticket, **`/clear`ing context between each one**. Each ticket is self-contained, so the last one's context is disposable.
    - **No** → **`/implement`** right here, in the same context window.
 
+   Where the decisions going into the spec were settled by slices that actually ran rather than by argument, **`/to-spec-with-evidence`** writes the same spec with the run behind each proved decision named. It's the variant a `/wayfinder-tracer` map graduates through; reach for it any time the thread you're collapsing carries that evidence.
+
    Either way, **`/implement`** builds each issue by driving **`/tdd`** internally (one red-green slice at a time), then closes out by running **`/code-review`**, a two-axis review (Standards + Spec) of the diff, before committing. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first without a full spec, and **`/code-review`** on its own whenever you want to review a branch or PR against a fixed point.
 
 ### Context hygiene
@@ -45,7 +47,9 @@ A starting situation that generates work, then merges onto the main flow.
 
   When the destination is merged code rather than a spec, use **`/wayfinder-tracer`** instead. It charts **depth-first**: one **tracer** slice (the stupidest thing that could work end to end) and an empty fog section, then grows the map only where a merged tracer actually hits something. It installs a doctrine into the map's Notes, after which plain `/wayfinder` sessions inherit it.
 
-  When the map clears, **it hands off, it doesn't build**: merge onto the main flow at **`/to-spec`**, which collapses the map's linked decisions into a buildable plan, then `/to-tickets` and `/implement` as usual. Looping the map straight into `/implement` skips that collapse and throws the linked detail away, so go straight to `/implement` only when the effort turned out genuinely small.
+  A tracer map doesn't clear all at once, it **graduates** a chunk at a time. Once a merged tracer has walked a path end to end and the work left along it is repetition (the other six endpoints, the remaining field mappings), that chunk stops being fog: **`/to-spec-with-evidence`** over what the tracers proved, then `/to-tickets` and `/implement` as usual, fanned out one subagent per unblocked ticket. The gate is a merged tracer, never agreement reached in a grilling. The map keeps only what a slice still has to prove.
+
+  When a plain wayfinder map clears, **it hands off, it doesn't build**: merge onto the main flow at **`/to-spec`**, which collapses the map's linked decisions into a buildable plan, then `/to-tickets` and `/implement` as usual. Looping the map straight into `/implement` skips that collapse and throws the linked detail away, so go straight to `/implement` only when the effort turned out genuinely small.
 
 ## Codebase health
 
