@@ -1,0 +1,5 @@
+interface:
+  display_name: "To Spec With Evidence"
+  short_description: "Turn a conversation into a spec whose proved decisions cite the run"
+policy:
+  allow_implicit_invocation: false
